@@ -1,14 +1,13 @@
 import React from "react";
-import CustomCarousel from "../components/carousel/CustomCarousel.js";
 import Loader from "../components/Loader/Loader";
 import TrendingProducts from "../components/TrendingProducts/TrendingProducts.js";
 import { Row, Col, Container } from "react-bootstrap";
+import Slider from "../components/carousel/Slider.js";
 
 const HomeScreen = () => {
   return (
     <section title='HomeScreen'>
-      <CustomCarousel />
-
+      <Slider />
       <Container>
         <TrendingProducts name='Trending' />
       </Container>
