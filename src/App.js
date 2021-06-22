@@ -10,16 +10,14 @@ function App() {
   return (
     <Router>
       <Header />
-      <Container>
-        <main className=''>
-          <Route path='/' component={HomeScreen} exact />
+      <main className=''>
+        <Route path='/' component={HomeScreen} exact />
           <Route
             path='/productDetail/:id'
             component={ProductDetailScreen}
             exact
           />
-        </main>
-      </Container>
+      </main>
 
       <Footer />
     </Router>

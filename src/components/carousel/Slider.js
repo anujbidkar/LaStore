@@ -24,20 +24,24 @@ function Slider(props) {
 
   return (
     <div
+      data-testid={"slider-container"}
       className='slider-container'
       onMouseEnter={showMyArrow}
       onMouseLeave={showMyArrow}
     >
       <SliderContent activeIndex={activeIndex} sliderImage={sliderImage} />
       {showArrow ? (
-        <Arrows
-          prevSlide={() =>
-            setActiveIndex(activeIndex < 1 ? len : activeIndex - 1)
-          }
-          nextSlide={() =>
-            setActiveIndex(activeIndex === len ? 0 : activeIndex + 1)
-          }
-        />
+        <div data-testid={"MyArrows"}>
+          <Arrows
+            className='anuj'
+            prevSlide={() =>
+              setActiveIndex(activeIndex < 1 ? len : activeIndex - 1)
+            }
+            nextSlide={() =>
+              setActiveIndex(activeIndex === len ? 0 : activeIndex + 1)
+            }
+          />
+        </div>
       ) : null}
 
       <Dots

@@ -23,7 +23,7 @@ const Header = () => {
               alt='React Bootstrap logo'
             />
           </Navbar.Brand>
-          {/* <Navbar.Brand>LA Store</Navbar.Brand> */}
+          <Navbar.Brand>LA Store</Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
