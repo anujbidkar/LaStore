@@ -12,16 +12,6 @@ function App() {
   return (
     <Router>
       <Header />
-<<<<<<< HEAD
-      <main className=''>
-        <Route path='/' component={HomeScreen} exact />
-          <Route
-            path='/productDetail/:id'
-            component={ProductDetailScreen}
-            exact
-          />
-      </main>
-=======
       <Switch>
         <Container>
           <main className=''>
@@ -35,7 +25,6 @@ function App() {
               path='/signup'
               component={SignUp}
               exact />
->>>>>>> feature/21-register
 
             <Route
               path='/signin'
@@ -43,7 +32,6 @@ function App() {
               exact />
           </main>
         </Container>
-
         <Footer />
       </Switch>
     </Router>
