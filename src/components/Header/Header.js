@@ -9,12 +9,14 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
+import { useSelector } from 'react-redux';
 const Header = () => {
+  const { cartItemsList } = useSelector(state => state.CartReducer)
   return (
     <header>
       <Navbar bg='light' variant='light' collapseOnSelect expand='lg'>
         <LinkContainer to='/'>
-          <Navbar.Brand href='#home'>
+          <Navbar.Brand >
             <img
               src='laLogo.png'
               width='100'
@@ -23,7 +25,7 @@ const Header = () => {
               alt='React Bootstrap logo'
             />
           </Navbar.Brand>
-          <Navbar.Brand>LA Store</Navbar.Brand>
+          {/* <Navbar.Brand>LA Store</Navbar.Brand> */}
         </LinkContainer>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
@@ -48,10 +50,10 @@ const Header = () => {
                 {/* <Button variant='outline-info'>Search</Button> */}
               </Form>
             </LinkContainer>
-            <LinkContainer to='/'>
+            <LinkContainer to='/cart'>
               <Nav.Link>
                 <i class='fa fa-shopping-cart' aria-hidden='true'></i>
-                Cart (2)
+                Cart {cartItemsList.length}
               </Nav.Link>
             </LinkContainer>
           </Nav>
