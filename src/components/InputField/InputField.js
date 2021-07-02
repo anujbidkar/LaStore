@@ -1,8 +1,9 @@
-
+import { Form } from 'react-bootstrap'
 const InputField = ({ type, name, value, handleChange }) => {
     return (
         <div>
-            <input
+            <Form.Control
+                required
                 type={type}
                 name={name}
                 value={value}

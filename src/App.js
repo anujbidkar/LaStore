@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Loader from './components/Loader/Loader'
 import { useSelector, useDispatch } from 'react-redux'
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -28,6 +29,16 @@ const Pages = [
     name: 'cart',
     path: '/cart',
     view: Cart
+  },
+  {
+    name: 'signUp',
+    path: `/signup`,
+    view: SignUp
+  },
+  {
+    name: 'signIn',
+    path: `/signin`,
+    view: SignIn
   }
 ]
 
@@ -38,8 +49,13 @@ function App() {
     dispatch(getCartItems())
   }, [])
 
+  // if (true) {
+  //   return <Loader />
+  // }
+
   return (
     <>
+
       <Header />
       <Container>
         <Switch>
