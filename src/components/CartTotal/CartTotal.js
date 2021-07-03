@@ -3,6 +3,8 @@ function CartTotal(props) {
         <div>
             totat : {props.total}
             subtotal :{props.total}
+            taxes : -
+            shippin amount : -
 
         </div>
     )

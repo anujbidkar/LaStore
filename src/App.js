@@ -12,6 +12,7 @@ import SignUp from './screens/SignUp';
 import SignIn from "./screens/SignIn";
 import Cart from "./screens/Cart";
 import { getCartItems } from './redux/Actions/CartAction'
+// import PrivateRoute from './PrivateRoute'
 
 
 const Pages = [
@@ -62,6 +63,7 @@ function App() {
           {
             Pages.map((page, index) => <Route key={index} exact path={page.path} component={() => <page.view page={page.name} />} />)
           }
+
           {/* <Route path='*' exact={true} component={My404Component} /> */}
         </Switch>
       </Container>
