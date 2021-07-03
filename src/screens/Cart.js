@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getCartItems } from '../redux/Actions/CartAction'
+import { Link } from 'react-router-dom'
+import { getCartItems, addQuantityToCart, subtractQuantityFromCart, removeItemFromCart } from '../redux/Actions/CartAction'
 import './cart.css'
 import CartTotal from '../components/CartTotal/CartTotal'
 
@@ -17,33 +18,58 @@ function Cart() {
     }
 
     const handleRemoveItem = (id) => {
-         dispatch(removeItemFromCart(id))
+        dispatch(removeItemFromCart(id))
     }
 
+
+    const handleAddQuantity = (id) => {
+        dispatch(addQuantityToCart(id))
+    }
+
+    const handleSubtractQuantity = (id) => {
+        dispatch(subtractQuantityFromCart(id))
+    }
+
+
     return (
-        <div>
-            your cart
-            <div className="cart-items">
-                <div>image</div>
-                <div>item  </div>
-                <div> price </div>
-                <div> quantity </div>
+        <>
+            <div className="container">
+                <div className="cart">
+                    <h5>You have ordered:</h5>
+                    <ul className="collection">
+                        {
+                            cartItemsList.map((item, index) => (
+                                <li className="collection-item avatar" key={item.id}>
+                                    <div className="item-img">
+                                        <img src={item.image} alt={item.image} className="" />
+                                    </div>
+
+                                    <div className="item-desc">
+                                        <span className="title">{item.name}</span>
+                                        <p>{item.desc}</p>
+                                        <p><b>Price: ${item.price}</b></p>
+                                        <p>
+                                            <b>Quantity: {item.quantity}</b>
+                                        </p>
+                                        <div className="add-remove">
+                                            <Link to="/cart"><i className="material-icons" onClick={() => handleAddQuantity(item.id)} >arrow_drop_up</i></Link>
+                                            <Link to="/cart"><i className="material-icons" onClick={() => handleSubtractQuantity(item.id)} >arrow arrow_drop_down</i></Link>
+                                        </div>
+                                        <button className="waves-effect waves-light btn pink remove" onClick={() => handleRemoveItem(item.id)} >Remove</button>
+                                    </div>
+
+                                </li>
+                            ))
+                        }
+
+                    </ul>
+                </div>
+                {/* <Recipe />           */}
             </div>
-
-            {
-                cartItemsList.map((item, index) => (
-                    <div className='cart-items-list' key={index}>
-                        <div><img className='cart-image' src={item.image} /></div>
-                        <div> {item.name}  </div>
-                        <div>  {item.price}  </div>
-                        <div> {item.quantity}</div>
-                        <button onClick={() => handleRemoveItem(item.id)}>remove item</button>
-                    </div>
-                ))
-            }
-
-            <CartTotal total={total} />
-        </div >
+            <div>
+                <CartTotal total={total} />
+            </div >
+        </>
     )
 }
 

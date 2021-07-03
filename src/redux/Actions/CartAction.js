@@ -1,4 +1,4 @@
-import { CART_ITEMS } from '../ActionType'
+import { CART_ITEMS, REMOVE_ITEM_FROM_CART, ADD_QUANTITY, SUBTRACT_QUANTITY } from '../ActionType'
 
 
 export const addItemInCart = (item, quantity) => async (dispatch) => {
@@ -41,6 +41,24 @@ export const getCartItems = () => (dispatch) => {
     }
 };
 
-export const removeItemFromCart = (id) => async (dispatch) => {
+export const removeItemFromCart = (id) => {
+    return {
+        type: REMOVE_ITEM_FROM_CART,
+        id
+    }
+}
 
+
+export const addQuantityToCart = (id) => {
+    return {
+        type: ADD_QUANTITY,
+        id
+    }
+}
+
+export const subtractQuantityFromCart = (id) => {
+    return {
+        type: SUBTRACT_QUANTITY,
+        id
+    }
 }
