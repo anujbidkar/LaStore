@@ -23,7 +23,7 @@ const ProductDetailScreen = () => {
   const [comment, setComment] = useState("");
   const { id } = useParams()
   const { productDetails } = useSelector(state => state.ProductReducer)
-  const { cartItemsList,total } = useSelector(state => state.CartReducer)
+  const { cartItemsList, total } = useSelector(state => state.CartReducer)
 
   useEffect(() => {
     fetchProductDetails()
