@@ -3,7 +3,7 @@ const url = 'http://localhost:3001'
 import { PRODUCT_DETAIL, GET_PRODUCT_LIST } from '../ActionType'
 
 
-
+//  get all products
 
 export const getProductData = () => async (dispatch) => {
     try {
@@ -14,7 +14,6 @@ export const getProductData = () => async (dispatch) => {
         dispatch({ type: GET_PRODUCT_LIST, payload: res.data.data })
     }
     catch (error) {
-        console.log(`errr`, error)
     }
 }
 
