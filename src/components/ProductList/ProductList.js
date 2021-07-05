@@ -21,7 +21,7 @@ const ProductList = ({ product }) => {
         </Link>
 
         <Card.Text as='div'>
-          <Rating value='4' text={`5 reviews`} />
+          <Rating value={product.rating} text={product.rating} />
         </Card.Text>
 
         <Card.Text as='h3'>$ {product.price} </Card.Text>

@@ -57,6 +57,7 @@ function Cart() {
                                         </div>
                                         <button className="waves-effect waves-light btn pink remove" onClick={() => handleRemoveItem(item.id)} >Remove</button>
                                     </div>
+                                    <Link to="/checkout">Checkout</Link>
 
                                 </li>
                             ))
