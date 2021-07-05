@@ -1,6 +1,6 @@
 import axios from 'axios'
-const url = 'http://localhost:3001'
 import { PRODUCT_DETAIL, GET_PRODUCT_LIST } from '../ActionType'
+const url = "https://lastoreapi.herokuapp.com";
 
 
 //  get all products

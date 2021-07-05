@@ -1,6 +1,6 @@
 import axios from 'axios'
-const url = 'http://localhost:3001'
 import { USER_REGISTER, SIGNIN } from '../ActionType'
+const url = "https://lastoreapi.herokuapp.com";
 
 export const signUpAction = (data) => async (dispatch) => {
     try {
