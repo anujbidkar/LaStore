@@ -1,14 +1,16 @@
 import { Form } from 'react-bootstrap'
-const InputField = ({ type, name, value, handleChange }) => {
+const InputField = ({ type, name, value, handleChange,placeholder,require }) => {
+  
     return (
         <div>
             <Form.Control
-                required
+                required ={require}
                 type={type}
                 name={name}
                 value={value}
+                placeholder={placeholder}
                 onChange={handleChange}
-                autocomplete="off" />
+                autoComplete="off" />
         </div>
     )
 }
