@@ -62,13 +62,13 @@ const ProductDetailScreen = () => {
               <Col sm={6} md={3} lg={3} xl={3}>
                 <ListGroup variant='flush'>
                   <ListGroup.Item>
-                    <h3>Product Name</h3>
+                    <h3>{productDetails.name}</h3>
                   </ListGroup.Item>
                   <ListGroup.Item>
-                    <Rating value='5' text={` 10 reviews`} />
+                    <Rating value={productDetails.rating} text={productDetails.rating} />
                   </ListGroup.Item>
-                  <ListGroup.Item>Price: $400</ListGroup.Item>
-                  <ListGroup.Item>Description: Testing Description</ListGroup.Item>
+                  <ListGroup.Item>Price: ${productDetails.price}</ListGroup.Item>
+                  <ListGroup.Item>{productDetails.description}</ListGroup.Item>
                 </ListGroup>
               </Col>
               <Col sm={6} md={3} lg={3} xl={3}>

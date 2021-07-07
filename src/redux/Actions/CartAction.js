@@ -1,3 +1,5 @@
+import axios from 'axios'
+const url = 'http://localhost:3001'
 import { CART_ITEMS, REMOVE_ITEM_FROM_CART, ADD_QUANTITY, SUBTRACT_QUANTITY } from '../ActionType'
 
 
@@ -60,5 +62,20 @@ export const subtractQuantityFromCart = (id) => {
     return {
         type: SUBTRACT_QUANTITY,
         id
+    }
+}
+
+
+export const checkoutWithStripe = ({ shippingForm, cartItem }) => async (dispatch) => {
+    try {
+        const res = await axios({
+            method: 'POST',
+            url: `${url}/api/orders/checkout`,
+            data: { ...shippingForm, cartItem }
+        })
+
+        return res;
+    } catch (error) {
+        console.log(error)
     }
 }

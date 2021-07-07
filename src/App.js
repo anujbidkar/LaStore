@@ -11,6 +11,7 @@ import ProductDetailScreen from "./screens/ProductDetailScreen";
 import SignUp from './screens/SignUp';
 import SignIn from "./screens/SignIn";
 import Cart from "./screens/Cart";
+import Checkout from './screens/Checkout';
 import { getCartItems } from './redux/Actions/CartAction'
 // import PrivateRoute from './PrivateRoute'
 
@@ -40,6 +41,10 @@ const Pages = [
     name: 'signIn',
     path: `/signin`,
     view: SignIn
+  }, {
+    name: 'Checkout',
+    path: '/checkout',
+    view: Checkout
   }
 ]
 
