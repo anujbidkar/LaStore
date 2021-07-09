@@ -1,12 +1,12 @@
 import axios from 'axios'
 import { CART_ITEMS, REMOVE_ITEM_FROM_CART, ADD_QUANTITY, SUBTRACT_QUANTITY } from '../ActionType'
-const url = 'https://lastoreapi.herokuapp.com'
+const url = process.env.REACT_APP_API_URL
 
 
 export const addItemInCart = (item, quantity) => async (dispatch) => {
     const cartItems = getCartItemsFromLocalStorage()
     const checkItemExists = cartItems.find(data => data.id === item.id)
-    console.log(checkItemExists, item)
+
     if (checkItemExists && Object.keys(checkItemExists).length) {
         let itemIndex = cartItems.findIndex(data => data.id === item.id)
         let changeQuantity = cartItems[itemIndex]

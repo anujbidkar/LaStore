@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { USER_REGISTER, SIGNIN } from '../ActionType'
-const url = "https://lastoreapi.herokuapp.com";
+const url = process.env.REACT_APP_API_URL;
 
 export const signUpAction = (data) => async (dispatch) => {
     try {
