@@ -6,6 +6,7 @@ import App from './App';
 import { Provider } from "react-redux";
 import { store } from './redux/Store'
 //  store connected with react for build development
+console.log(`process.emv`,process.env.REACT_APP_API_URL)
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

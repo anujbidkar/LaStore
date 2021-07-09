@@ -57,7 +57,7 @@ const Header = () => {
             </LinkContainer>
             <LinkContainer to='/cart'>
               <Nav.Link>
-                <i class='fa fa-shopping-cart' aria-hidden='true'></i>
+                <i className='fa fa-shopping-cart' aria-hidden='true'></i>
                 Cart {cartItemsList.length}
               </Nav.Link>
             </LinkContainer>

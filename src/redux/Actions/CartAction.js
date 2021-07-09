@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { CART_ITEMS, REMOVE_ITEM_FROM_CART, ADD_QUANTITY, SUBTRACT_QUANTITY } from '../ActionType'
-const url = 'https://lastoreapi.herokuapp.com'
+import { url } from '../../config'
 
 
 export const addItemInCart = (item, quantity) => async (dispatch) => {
