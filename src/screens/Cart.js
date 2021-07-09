@@ -52,10 +52,10 @@ function Cart() {
                                             <b>Quantity: {item.quantity}</b>
                                         </p>
                                         <div className="add-remove">
-                                            <Link to="/cart"><i className="material-icons" onClick={() => handleAddQuantity(item.id)} >arrow_drop_up</i></Link>
-                                            <Link to="/cart"><i className="material-icons" onClick={() => handleSubtractQuantity(item.id)} >arrow arrow_drop_down</i></Link>
+                                            <Link to="/cart"><i className="material-icons" onClick={() => handleAddQuantity(item._id)} >arrow_drop_up</i></Link>
+                                            <Link to="/cart"><i className="material-icons" onClick={() => handleSubtractQuantity(item._id)} >arrow arrow_drop_down</i></Link>
                                         </div>
-                                        <button className="waves-effect waves-light btn pink remove" onClick={() => handleRemoveItem(item.id)} >Remove</button>
+                                        <button className="waves-effect waves-light btn pink remove" onClick={() => handleRemoveItem(item._id)} >Remove</button>
                                     </div>
                                     <Link to="/checkout">Checkout</Link>
 

@@ -13,7 +13,7 @@ export const CartReducer = (state = initialState, action) => {
                 total: action.payload.reduce((a, b) => a + (b.price * b.quantity), 0)
             }
         case ADD_QUANTITY:
-            const addedItem = state.cartItemsList.find((item => item.id === action.id))
+            const addedItem = state.cartItemsList.find((item => item._id === action.id))
             addedItem.quantity += 1
             let newTotal = state.total + addedItem.quantity * addedItem.price
             localStorage.setItem('cartItems', JSON.stringify(state.cartItemsList))
@@ -22,7 +22,7 @@ export const CartReducer = (state = initialState, action) => {
                 total: newTotal
             }
         case SUBTRACT_QUANTITY:
-            const subItem = state.cartItemsList.find((item => item.id === action.id))
+            const subItem = state.cartItemsList.find((item => item._id === action.id))
             subItem.quantity -= 1
             localStorage.setItem('cartItems', JSON.stringify(state.cartItemsList))
             let newTotal2 = state.total - subItem.quantity * subItem.price
@@ -32,7 +32,7 @@ export const CartReducer = (state = initialState, action) => {
 
             }
         case REMOVE_ITEM_FROM_CART:
-            const removeItem = state.cartItemsList.filter((item) => item.id !== action.id)
+            const removeItem = state.cartItemsList.filter((item) => item._id !== action.id)
             localStorage.setItem('cartItems', JSON.stringify(removeItem))
             const getNewCartItem = JSON.parse(localStorage.getItem('cartItems'))
             let newTotal3 = state.total - removeItem.quantity * removeItem.price
