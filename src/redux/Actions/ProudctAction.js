@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { PRODUCT_DETAIL, GET_PRODUCT_LIST } from '../ActionType'
-const url = process.env.REACT_APP_API_URL;
+const url = 'https://lastoreapi.herokuapp.com';
 
 
 //  get all products
