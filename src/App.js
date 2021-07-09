@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Loader from './components/Loader/Loader'
@@ -6,14 +7,16 @@ import { useSelector, useDispatch } from 'react-redux'
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import HomeScreen from "./screens/HomeScreen";
+import { PrivateRoute } from './PrivateRoute'
 import { Container } from "react-bootstrap";
+import { isUserLoggedIn } from './redux/Actions/AuthAction'
 import ProductDetailScreen from "./screens/ProductDetailScreen";
 import SignUp from './screens/SignUp';
 import SignIn from "./screens/SignIn";
 import Cart from "./screens/Cart";
 import Checkout from './screens/Checkout';
 import { getCartItems } from './redux/Actions/CartAction'
-// import PrivateRoute from './PrivateRoute'
+import My404Component from './components/My404Component/My404Component'
 
 
 const Pages = [
@@ -41,11 +44,8 @@ const Pages = [
     name: 'signIn',
     path: `/signin`,
     view: SignIn
-  }, {
-    name: 'Checkout',
-    path: '/checkout',
-    view: Checkout
-  }
+  },
+
 ]
 
 function App() {
@@ -53,6 +53,10 @@ function App() {
 
   useEffect(() => {
     dispatch(getCartItems())
+  }, [])
+
+  useEffect(() => {
+    dispatch(isUserLoggedIn())
   }, [])
 
   // if (true) {
@@ -68,8 +72,8 @@ function App() {
           {
             Pages.map((page, index) => <Route key={index} exact path={page.path} component={() => <page.view page={page.name} />} />)
           }
-
-          {/* <Route path='*' exact={true} component={My404Component} /> */}
+          <PrivateRoute path='/checkout' component={Checkout} exact />
+          <Route path='*' exact={true} component={My404Component} />
         </Switch>
       </Container>
       <Footer />

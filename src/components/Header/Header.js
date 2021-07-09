@@ -12,6 +12,7 @@ import {
 import { useSelector } from 'react-redux';
 const Header = () => {
   const { cartItemsList } = useSelector(state => state.CartReducer)
+  const { userDetails } = useSelector(state => state.AuthReducer)
   return (
     <header>
       <Navbar bg='light' variant='light' collapseOnSelect expand='lg'>
@@ -36,9 +37,13 @@ const Header = () => {
             <LinkContainer to='/product'>
               <Nav.Link> Products</Nav.Link>
             </LinkContainer>
-            <LinkContainer to='/signin'>
-              <Nav.Link> Sign In</Nav.Link>
-            </LinkContainer>
+            {userDetails.name ?
+              <>{userDetails.name}</>
+              :
+              <LinkContainer to='/signin'>
+                <Nav.Link> Sign In</Nav.Link>
+              </LinkContainer>
+            }
             <LinkContainer to='/'>
               <Form className='d-flex'>
                 <FormControl

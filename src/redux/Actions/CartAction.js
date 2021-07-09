@@ -5,10 +5,10 @@ const url = process.env.REACT_APP_API_URL
 
 export const addItemInCart = (item, quantity) => async (dispatch) => {
     const cartItems = getCartItemsFromLocalStorage()
-    const checkItemExists = cartItems.find(data => data.id === item.id)
+    const checkItemExists = cartItems.find(data => data._id === item._id)
 
     if (checkItemExists && Object.keys(checkItemExists).length) {
-        let itemIndex = cartItems.findIndex(data => data.id === item.id)
+        let itemIndex = cartItems.findIndex(data => data._id === item._id)
         let changeQuantity = cartItems[itemIndex]
         changeQuantity['quantity'] += +quantity
         setCartItemsInLocalStorage(cartItems)
