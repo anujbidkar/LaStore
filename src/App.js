@@ -1,63 +1,62 @@
-import { useEffect } from 'react'
+import { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Loader from './components/Loader/Loader'
-import { useSelector, useDispatch } from 'react-redux'
+import Loader from "./components/Loader/Loader";
+import { useSelector, useDispatch } from "react-redux";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import HomeScreen from "./screens/HomeScreen";
-import { PrivateRoute } from './PrivateRoute'
+import { PrivateRoute } from "./PrivateRoute";
 import { Container } from "react-bootstrap";
-import { isUserLoggedIn } from './redux/Actions/AuthAction'
+import { isUserLoggedIn } from "./redux/Actions/AuthAction";
 import ProductDetailScreen from "./screens/ProductDetailScreen";
-import SignUp from './screens/SignUp';
+import SignUp from "./screens/SignUp";
 import SignIn from "./screens/SignIn";
 import Cart from "./screens/Cart";
-import Checkout from './screens/Checkout';
-import { getCartItems } from './redux/Actions/CartAction'
-import My404Component from './components/My404Component/My404Component'
-
+import NewCart from "./screens/NewCart";
+import Checkout from "./screens/Checkout";
+import { getCartItems } from "./redux/Actions/CartAction";
+import My404Component from "./components/My404Component/My404Component";
 
 const Pages = [
   {
-    name: 'ProductDetailScreen',
+    name: "ProductDetailScreen",
     path: `/productDetail/:id`,
-    view: ProductDetailScreen
+    view: ProductDetailScreen,
   },
   {
-    name: 'home',
+    name: "home",
     path: `/`,
-    view: HomeScreen
+    view: HomeScreen,
   },
   {
-    name: 'cart',
-    path: '/cart',
-    view: Cart
+    name: "cart",
+    path: "/cart",
+    view: NewCart,
   },
   {
-    name: 'signUp',
+    name: "signUp",
     path: `/signup`,
-    view: SignUp
+    view: SignUp,
   },
   {
-    name: 'signIn',
+    name: "signIn",
     path: `/signin`,
-    view: SignIn
+    view: SignIn,
   },
-
-]
+];
 
 function App() {
-  let dispatch = useDispatch()
+  let dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getCartItems())
-  }, [])
+    dispatch(getCartItems());
+  }, []);
 
   useEffect(() => {
-    dispatch(isUserLoggedIn())
-  }, [])
+    dispatch(isUserLoggedIn());
+  }, []);
 
   // if (true) {
   //   return <Loader />
@@ -65,17 +64,21 @@ function App() {
 
   return (
     <>
-
       <Header />
-      <Container>
+      <div className='wrap ' id='main'>
         <Switch>
-          {
-            Pages.map((page, index) => <Route key={index} exact path={page.path} component={() => <page.view page={page.name} />} />)
-          }
+          {Pages.map((page, index) => (
+            <Route
+              key={index}
+              exact
+              path={page.path}
+              component={() => <page.view page={page.name} />}
+            />
+          ))}
           <PrivateRoute path='/checkout' component={Checkout} exact />
           <Route path='*' exact={true} component={My404Component} />
         </Switch>
-      </Container>
+      </div>
       <Footer />
     </>
   );

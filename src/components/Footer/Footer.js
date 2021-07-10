@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Button, Row, Col } from "react-bootstrap";
 
 const Footer = () => {
   return (
@@ -22,7 +22,9 @@ const Footer = () => {
               className='p-1  subsribeFooter'
               placeholder='Enter Your Email Id '
             />
-            <button className='btn btn-info m-2'>Subsribe</button>
+            <Button type='submit' variant='primary' className='m-1 h-1'>
+              Subsribe
+            </Button>
           </Col>
           <Col sm={12} md={12} lg={12} xl={12} className='text-center py-3'>
             copyright &copy; LA Store 2021

@@ -10,41 +10,40 @@ import {
   Form,
   Container,
 } from "react-bootstrap";
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from "react-redux";
 import Rating from "../components/Rating/Rating";
 import TrendingProducts from "../components/TrendingProducts/TrendingProducts.js";
-import { getProductDetailsById } from '../redux/Actions/ProudctAction'
-import { addItemInCart, getCartItems } from '../redux/Actions/CartAction'
+import { getProductDetailsById } from "../redux/Actions/ProudctAction";
+import { addItemInCart, getCartItems } from "../redux/Actions/CartAction";
 
 const ProductDetailScreen = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [qty, setQty] = useState(1);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
-  const { id } = useParams()
-  const { productDetails } = useSelector(state => state.ProductReducer)
-  const { cartItemsList, total } = useSelector(state => state.CartReducer)
+  const { id } = useParams();
+  const { productDetails } = useSelector((state) => state.ProductReducer);
+  const { cartItemsList, total } = useSelector((state) => state.CartReducer);
 
   useEffect(() => {
-    fetchProductDetails()
+    fetchProductDetails();
   }, []);
 
   useEffect(() => {
-    getCartItems()
-  }, [cartItemsList])
+    getCartItems();
+  }, [cartItemsList]);
 
   const fetchProductDetails = () => {
-    dispatch(getProductDetailsById(id))
-  }
+    dispatch(getProductDetailsById(id));
+  };
 
   const handleAddItemToCart = (item) => {
-    dispatch(addItemInCart(item, qty))
-  }
-
+    dispatch(addItemInCart(item, qty));
+  };
 
   return (
-    <>
-      {productDetails &&
+    <Container>
+      {productDetails && (
         <>
           <Link className='btn btn-light my-3' to='/'>
             Go Back
@@ -65,9 +64,14 @@ const ProductDetailScreen = () => {
                     <h3>{productDetails.name}</h3>
                   </ListGroup.Item>
                   <ListGroup.Item>
-                    <Rating value={productDetails.rating} text={productDetails.rating} />
+                    <Rating
+                      value={productDetails.rating}
+                      text={productDetails.rating}
+                    />
                   </ListGroup.Item>
-                  <ListGroup.Item>Price: ${productDetails.price}</ListGroup.Item>
+                  <ListGroup.Item>
+                    Price: ${productDetails.price}
+                  </ListGroup.Item>
                   <ListGroup.Item>{productDetails.description}</ListGroup.Item>
                 </ListGroup>
               </Col>
@@ -108,7 +112,11 @@ const ProductDetailScreen = () => {
                     </ListGroup.Item>
 
                     <ListGroup.Item>
-                      <Button className='btn-block' type='button' onClick={() => handleAddItemToCart(productDetails)}>
+                      <Button
+                        className='btn-block'
+                        type='button'
+                        onClick={() => handleAddItemToCart(productDetails)}
+                      >
                         Add To Cart
                       </Button>
                     </ListGroup.Item>
@@ -173,8 +181,8 @@ const ProductDetailScreen = () => {
             </Row>
           </>
         </>
-      }
-    </>
+      )}
+    </Container>
   );
 };
 
