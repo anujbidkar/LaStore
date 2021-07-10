@@ -47,7 +47,6 @@ function SignIn() {
             type='email'
             placeholder='Enter email'
             name='email'
-            value={state.email}
             handleChange={handleChange}
             //   value={state.email}
             //   onChange={(e) => setEmail(e.target.value)}
@@ -59,7 +58,6 @@ function SignIn() {
           <Form.Control
             type='password'
             placeholder='Enter password'
-            value={state.password}
             handleChange={handleChange}
           ></Form.Control>
         </Form.Group>

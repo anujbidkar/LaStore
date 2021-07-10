@@ -57,7 +57,6 @@ function SignUp(props) {
             <Form.Control
               type='text'
               name='email'
-              value={state.email}
               placeholder=''
               handleChange={handleChange}
             ></Form.Control>
@@ -65,20 +64,12 @@ function SignUp(props) {
 
           <Form.Group controlId='password'>
             <Form.Label>Password</Form.Label>
-            <Form.Control
-              type='password'
-              name='password'
-              value={state.password}
-            ></Form.Control>
+            <Form.Control type='password' name='password'></Form.Control>
           </Form.Group>
 
           <Form.Group controlId='confirmPassword'>
             <Form.Label>Confirm Password</Form.Label>
-            <Form.Control
-              type='password'
-              name='password'
-              value={state.confirm_password}
-            ></Form.Control>
+            <Form.Control type='password' name='password'></Form.Control>
           </Form.Group>
 
           <Button type='submit' variant='primary'>
