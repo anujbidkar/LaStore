@@ -39,11 +39,11 @@ const SearchBox = ({ history }) => {
         className='mr-sm-2 ml-sm-5'
       ></Form.Control>
 
-      <div class='input-group'>
+      {/* <div class='input-group'>
         <div class='form-outline'>
           <input type='search' id='form1' class='form-control' />
         </div>
-      </div>
+      </div> */}
 
       {/* {searchProductList.map((item, index) => (
         <div>

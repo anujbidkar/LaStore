@@ -9,17 +9,22 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
+import { Redirect } from "react-router";
+
 import { Route } from "react-router-dom";
 import SearchBox from "../SearchBox/SearchBox";
 
 import { useSelector, useDispatch } from "react-redux";
-const Header = () => {
+const Header = (props) => {
   const dispatch = useDispatch();
   const { cartItemsList } = useSelector((state) => state.CartReducer);
   const { userDetails } = useSelector((state) => state.AuthReducer);
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
+    this.props.history.push("/");
+
+    // return <Redirect to='/' />;
   };
   return (
     <header>

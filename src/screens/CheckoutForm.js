@@ -16,13 +16,13 @@ const CheckoutForm = (props) => {
   const [shippingForm, setShippingForm] = useState({
     email: userDetails.email,
     first_name: userDetails.name,
-    last_name: "",
-    company: "",
-    address: "",
-    state: "",
-    city: "",
-    country: "",
-    zip: "",
+    last_name: "Teting",
+    company: "La Store",
+    address: "Test Building , Test Road",
+    state: "Test State",
+    city: "Test City",
+    country: "Test Country",
+    zip: "411045",
   });
 
   useEffect(() => {

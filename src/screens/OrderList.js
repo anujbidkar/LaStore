@@ -30,14 +30,22 @@ function OrderList() {
           </tr>
         </thead>
         <tbody>
-          {orderListItems.map((item, index) => (
+          {orderListItems.length > 0 ? (
+            orderListItems.map((item, index) => (
+              <tr>
+                <td>{index + 1}</td>
+                <td>{item.order_number}</td>
+                <td>{item.order_status}</td>
+                <td>{item.payment_status ? item.payment_status : "pending"}</td>
+              </tr>
+            ))
+          ) : (
             <tr>
-              <td>{index + 1}</td>
-              <td>{item.order_number}</td>
-              <td>{item.order_status}</td>
-              <td>{item.payment_status ? item.payment_status : "pending"}</td>
+              <td colspan='4' className='text-center'>
+                <h6>No Orders Found !!!</h6>
+              </td>
             </tr>
-          ))}
+          )}
         </tbody>
       </table>
     </Container>

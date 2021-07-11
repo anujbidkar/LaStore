@@ -75,6 +75,17 @@ function SignUp(props) {
           <Form onSubmit={handleSubmit}>
             {err ? <Message variant='danger' children={err} /> : null}
             <Form.Group controlId='email'>
+              <Form.Label>Name</Form.Label>
+              <Form.Control
+                type='text'
+                name='name'
+                required
+                value={state.name}
+                placeholder=''
+                onChange={handleChange}
+              ></Form.Control>
+            </Form.Group>
+            <Form.Group controlId='email'>
               <Form.Label>Email Address</Form.Label>
               <Form.Control
                 type='email'
