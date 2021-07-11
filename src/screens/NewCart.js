@@ -124,7 +124,7 @@ const NewCart = () => {
                           <Button
                             type='button'
                             variant='light'
-                          // onClick={() => removeFromCartHandler(item.product)}
+                            onClick={() => handleRemoveItem(item._id)}
                           >
                             <i className='fas fa-trash'></i>
                           </Button>
