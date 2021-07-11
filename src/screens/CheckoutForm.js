@@ -13,6 +13,7 @@ import { Redirect } from 'react-router-dom'
 const CheckoutForm = (props) => {
     const dispatch = useDispatch()
     const { cartItemsList, total } = useSelector(state => state.CartReducer)
+    const { user_id } = useSelector((state) => state.AuthReducer);
     const [succeeded, setSucceeded] = useState(false);
     const [shippingForm, setShippingForm] = useState({
         email: '',
@@ -58,7 +59,7 @@ const CheckoutForm = (props) => {
     };
     const handleSubmit = async ev => {
         ev.preventDefault();
-        const res = await dispatch(checkoutWithStripe({ shippingForm, cartItem: cartItemsList }))
+        const res = await dispatch(checkoutWithStripe({ shippingForm, cartItem: cartItemsList, user_id }))
         if (res) {
             window.location.href = res.data.url
         }

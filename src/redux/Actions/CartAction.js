@@ -66,12 +66,12 @@ export const subtractQuantityFromCart = (id) => {
 }
 
 
-export const checkoutWithStripe = ({ shippingForm, cartItem }) => async (dispatch) => {
+export const checkoutWithStripe = ({ shippingForm, cartItem, user_id }) => async (dispatch) => {
     try {
         const res = await axios({
             method: 'POST',
             url: `${url}/api/orders/checkout`,
-            data: { ...shippingForm, cartItem }
+            data: { ...shippingForm, cartItem, user_id }
         })
         localStorage.setItem('order_id', res.data.data.order_id)
         return res.data;
