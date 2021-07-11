@@ -58,10 +58,9 @@ const CheckoutForm = (props) => {
     };
     const handleSubmit = async ev => {
         ev.preventDefault();
-        console.log(`wfewewfewf`, cartItemsList)
         const res = await dispatch(checkoutWithStripe({ shippingForm, cartItem: cartItemsList }))
         if (res) {
-            window.location.href = res.data
+            window.location.href = res.data.url
         }
 
     };

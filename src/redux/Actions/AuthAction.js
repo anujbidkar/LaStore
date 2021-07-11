@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { USER_REGISTER, SIGNIN, ERROR_MESSAGE, GET_USER_DETAILS } from '../ActionType'
 import { toast } from '../../components/Toast/Toast'
-const url = 'https://lastoreapi.herokuapp.com';
+import { url } from '../../config'
 
 export const signUpAction = (data) => async (dispatch) => {
     try {

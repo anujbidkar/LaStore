@@ -16,8 +16,10 @@ import SignIn from "./screens/SignIn";
 import Cart from "./screens/Cart";
 import NewCart from "./screens/NewCart";
 import Checkout from "./screens/Checkout";
-import { getCartItems } from "./redux/Actions/CartAction";
-import My404Component from "./components/My404Component/My404Component";
+import { getCartItems } from './redux/Actions/CartAction'
+import OrderConfirmation from './screens/OrderConfirmation/OrderConfirmation';
+import My404Component from './components/My404Component/My404Component'
+
 
 const Pages = [
   {
@@ -76,6 +78,7 @@ function App() {
             />
           ))}
           <PrivateRoute path='/checkout' component={Checkout} exact />
+          <PrivateRoute path='/OrderConfirmation' component={OrderConfirmation} exact />
           <Route path='*' exact={true} component={My404Component} />
         </Switch>
       </div>

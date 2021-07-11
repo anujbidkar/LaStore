@@ -73,8 +73,8 @@ export const checkoutWithStripe = ({ shippingForm, cartItem }) => async (dispatc
             url: `${url}/api/orders/checkout`,
             data: { ...shippingForm, cartItem }
         })
-
-        return res;
+        localStorage.setItem('order_id', res.data.data.order_id)
+        return res.data;
     } catch (error) {
         console.log(error)
     }
