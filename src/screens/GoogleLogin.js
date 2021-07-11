@@ -1,5 +1,5 @@
 import React from 'react'
-import google from '../assets/google'
+import google from '../assets/google.svg'
 
 const googleClientID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 

@@ -38,7 +38,7 @@ const Header = () => {
                   <i className='fas fa-home'></i> Home
                 </Nav.Link>
               </LinkContainer>
-              
+
               <LinkContainer to='/cart'>
                 <Nav.Link>
                   <i className='fas fa-shopping-cart'></i> Cart{" "}
@@ -49,12 +49,12 @@ const Header = () => {
                 <LinkContainer to='/profile'>
                   <NavDropdown.Item>Profile</NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to='/admin/orderlist'>
+                <LinkContainer to='/orderlist'>
                   <NavDropdown.Item>Orders</NavDropdown.Item>
                 </LinkContainer>
                 <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
               </NavDropdown> :
-                <LinkContainer to='/sigin' >
+                <LinkContainer to='/signin' >
                   <Nav.Link >
                     sigin
                   </Nav.Link>

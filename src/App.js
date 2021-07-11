@@ -19,6 +19,7 @@ import Checkout from "./screens/Checkout";
 import { getCartItems } from './redux/Actions/CartAction'
 import OrderConfirmation from './screens/OrderConfirmation/OrderConfirmation';
 import My404Component from './components/My404Component/My404Component'
+import OrderList from './screens/OrderList'
 
 
 const Pages = [
@@ -79,6 +80,7 @@ function App() {
           ))}
           <PrivateRoute path='/checkout' component={Checkout} exact />
           <PrivateRoute path='/OrderConfirmation' component={OrderConfirmation} exact />
+          <PrivateRoute path='/orderlist' component={OrderList} exact />
           <Route path='*' exact={true} component={My404Component} />
         </Switch>
       </div>
