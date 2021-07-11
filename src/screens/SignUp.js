@@ -77,7 +77,7 @@ function SignUp(props) {
             <Form.Group controlId='email'>
               <Form.Label>Email Address</Form.Label>
               <Form.Control
-                type='text'
+                type='email'
                 name='email'
                 required
                 value={state.email}

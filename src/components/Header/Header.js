@@ -14,13 +14,13 @@ import SearchBox from "../SearchBox/SearchBox";
 
 import { useSelector, useDispatch } from "react-redux";
 const Header = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const { cartItemsList } = useSelector((state) => state.CartReducer);
   const { userDetails } = useSelector((state) => state.AuthReducer);
 
   const handleLogout = () => {
-    dispatch({ type: 'LOGOUT' })
-  }
+    dispatch({ type: "LOGOUT" });
+  };
   return (
     <header>
       <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
@@ -45,26 +45,28 @@ const Header = () => {
                   {cartItemsList.length}
                 </Nav.Link>
               </LinkContainer>
-              {Object.keys(userDetails).length ? < NavDropdown title={userDetails.name} id='username'>
-                <LinkContainer to='/profile'>
-                  <NavDropdown.Item>Profile</NavDropdown.Item>
+              {Object.keys(userDetails).length ? (
+                <NavDropdown title={userDetails.name} id='username'>
+                  {/* <LinkContainer to='/profile'>
+                    <NavDropdown.Item>Profile</NavDropdown.Item>
+                  </LinkContainer> */}
+                  <LinkContainer to='/orderlist'>
+                    <NavDropdown.Item>Orders</NavDropdown.Item>
+                  </LinkContainer>
+                  <NavDropdown.Item onClick={handleLogout}>
+                    Logout
+                  </NavDropdown.Item>
+                </NavDropdown>
+              ) : (
+                <LinkContainer to='/signin'>
+                  <Nav.Link>sigin</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to='/orderlist'>
-                  <NavDropdown.Item>Orders</NavDropdown.Item>
-                </LinkContainer>
-                <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
-              </NavDropdown> :
-                <LinkContainer to='/signin' >
-                  <Nav.Link >
-                    sigin
-                  </Nav.Link>
-                </LinkContainer>
-              }
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </header >
+    </header>
   );
 };
 

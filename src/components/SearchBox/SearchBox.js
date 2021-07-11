@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, ListGroup } from "react-bootstrap";
 import debounce from "lodash.debounce";
 import { serachProduct } from "../../redux/Actions/ProductAction";
 
@@ -38,15 +38,19 @@ const SearchBox = ({ history }) => {
         placeholder='Search Products...'
         className='mr-sm-2 ml-sm-5'
       ></Form.Control>
-      <Button type='submit' variant='outline-success' className='p-2'>
-        Search
-      </Button>
-      {searchProductList.map((item, index) => (
+
+      <div class='input-group'>
+        <div class='form-outline'>
+          <input type='search' id='form1' class='form-control' />
+        </div>
+      </div>
+
+      {/* {searchProductList.map((item, index) => (
         <div>
           <img src={item.image} />
           <h2>{item.name}</h2>
         </div>
-      ))}
+      ))} */}
     </Form>
   );
 };
