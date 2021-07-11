@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { PRODUCT_DETAIL, GET_PRODUCT_LIST } from '../ActionType'
+import { PRODUCT_DETAIL, GET_PRODUCT_LIST, SEARCH_PRODUCT } from '../ActionType'
 import { url } from '../../config'
 
 
@@ -25,6 +25,22 @@ export const getProductDetailsById = (id) => async (dispatch) => {
         })
         dispatch({
             type: PRODUCT_DETAIL,
+            payload: res.data.data
+        })
+    }
+    catch (error) {
+        console.log(`errr`, error)
+    }
+}
+
+export const serachProduct = (name) => async (dispatch) => {
+    try {
+        const res = await axios({
+            method: 'GET',
+            url: `${url}/api/products/search?search=${name}`
+        })
+        dispatch({
+            type: SEARCH_PRODUCT,
             payload: res.data.data
         })
     }

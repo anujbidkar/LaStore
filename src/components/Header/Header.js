@@ -22,60 +22,6 @@ const Header = () => {
     dispatch({ type: 'LOGOUT' })
   }
   return (
-    // <header>
-    //   <Navbar bg='light' variant='light' collapseOnSelect expand='lg'>
-    //     <LinkContainer to='/'>
-    //       <Navbar.Brand>
-    //         <img
-    //           src='laLogo.png'
-    //           width='100'
-    //           height='100'
-    //           className='d-inline-block align-top'
-    //           alt='React Bootstrap logo'
-    //         />
-    //       </Navbar.Brand>
-    //       {/* <Navbar.Brand>LA Store</Navbar.Brand> */}
-    //     </LinkContainer>
-    //     <Navbar.Toggle aria-controls='basic-navbar-nav' />
-    //     <Navbar.Collapse id='basic-navbar-nav'>
-    //       <Nav className='ml-auto'>
-    //         <LinkContainer to='/'>
-    //           <Nav.Link> Home</Nav.Link>
-    //         </LinkContainer>
-    //         <LinkContainer to='/signin'>
-    //           <Nav.Link> Sign In</Nav.Link>
-    //         </LinkContainer>
-
-    //         {userDetails.name ? (
-    //           <LinkContainer to='/signin'>
-    //             <Nav.Link> My Account</Nav.Link>
-    //           </LinkContainer>
-    //         ) : (
-    //           <LinkContainer to='/signin'>
-    //             <Nav.Link> Sign In</Nav.Link>
-    //           </LinkContainer>
-    //         )}
-    //         <LinkContainer to='/'>
-    //           <Form className='d-flex'>
-    //             <FormControl
-    //               type='search'
-    //               placeholder='Search...'
-    //               className='mr-2'
-    //               aria-label='Search'
-    //             />
-    //             {/* <Button variant='outline-info'>Search</Button> */}
-    //           </Form>
-    //         </LinkContainer>
-    //         <LinkContainer to='/cart'>
-    //           <Nav.Link>
-    //             <i className='fa fa-shopping-cart' aria-hidden='true'></i>
-    //             Cart {cartItemsList.length}
-    //           </Nav.Link>
-    //         </LinkContainer>
-    //       </Nav>
-    //     </Navbar.Collapse>
-    //   </Navbar>
-    // </header>
     <header>
       <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
         <Container>

@@ -13,7 +13,7 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import Rating from "../components/Rating/Rating";
 import TrendingProducts from "../components/TrendingProducts/TrendingProducts.js";
-import { getProductDetailsById } from "../redux/Actions/ProudctAction";
+import { getProductDetailsById } from "../redux/Actions/ProductAction";
 import { addItemInCart, getCartItems } from "../redux/Actions/CartAction";
 
 const ProductDetailScreen = () => {

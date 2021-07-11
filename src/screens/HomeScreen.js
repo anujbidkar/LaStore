@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import TrendingProducts from "../components/TrendingProducts/TrendingProducts.js";
 import { Row, Col, Container } from "react-bootstrap";
 import Slider from "../components/carousel/Slider.js";
-import { getProductData } from "../redux/Actions/ProudctAction";
+import { getProductData } from "../redux/Actions/ProductAction";
 // import Loader from "../components/Loader/Loader";
 const HomeScreen = () => {
   let dispatch = useDispatch();

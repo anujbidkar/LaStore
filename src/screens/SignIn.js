@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import InputField from "../components/InputField/InputField";
+import GoogleLogin from './GoogleLogin'
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { signInAction } from "../redux/Actions/AuthAction";
@@ -66,7 +67,8 @@ function SignIn() {
           Sign In
         </Button>
       </Form>
-
+      <GoogleLogin>
+      </GoogleLogin>
       <Row className='py-3'>
         <Col>
           New Customer? <Link to={"/signup"}>Register</Link>
