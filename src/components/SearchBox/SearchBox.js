@@ -1,34 +1,33 @@
 import React, { useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Form, Button } from "react-bootstrap";
-import debounce from 'lodash.debounce';
-import { serachProduct } from '../../redux/Actions/ProductAction'
+import debounce from "lodash.debounce";
+import { serachProduct } from "../../redux/Actions/ProductAction";
 
 const SearchBox = ({ history }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [keyword, setKeyword] = useState("");
   const { searchProductList } = useSelector((state) => state.ProductReducer);
 
   const debouncedSave = useCallback(
-    debounce(nextValue => dispatch(serachProduct(nextValue)), 2000),
-    [keyword],
+    debounce((nextValue) => dispatch(serachProduct(nextValue)), 2000),
+    [keyword]
   );
 
   const handleChange = (e) => {
-    const { value: nextValue } = e.target
+    const { value: nextValue } = e.target;
     setKeyword(nextValue);
     debouncedSave(nextValue);
-  }
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
     if (keyword.trim()) {
-      serachProduct(keyword)
+      serachProduct(keyword);
     } else {
       history.push("/");
     }
   };
-
 
   return (
     <Form onSubmit={submitHandler} inline>
@@ -42,11 +41,12 @@ const SearchBox = ({ history }) => {
       <Button type='submit' variant='outline-success' className='p-2'>
         Search
       </Button>
-      {searchProductList.map((item, index) => <div>
-        <img src={item.image} />
-        <h2>{item.name}</h2>
-      </div>
-      )}
+      {searchProductList.map((item, index) => (
+        <div>
+          <img src={item.image} />
+          <h2>{item.name}</h2>
+        </div>
+      ))}
     </Form>
   );
 };

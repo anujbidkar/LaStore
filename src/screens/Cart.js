@@ -64,7 +64,7 @@ function Cart() {
                         arrow_drop_up
                       </i>
                     </Link>
-                    <Link to='/cart' >
+                    <Link to='/cart'>
                       <i
                         disabled={true}
                         className='material-icons'

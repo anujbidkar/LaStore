@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import InputField from "../components/InputField/InputField";
-import GoogleLogin from './GoogleLogin'
+import GoogleLogin from "./GoogleLogin";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { signInAction } from "../redux/Actions/AuthAction";
@@ -47,6 +47,7 @@ function SignIn() {
             type='email'
             placeholder='Enter email'
             name='email'
+            required
             onChange={handleChange}
             value={state.email}
           ></Form.Control>
@@ -57,6 +58,7 @@ function SignIn() {
           <Form.Control
             type='password'
             name='password'
+            required
             placeholder='Enter password'
             value={state.password}
             onChange={handleChange}
@@ -67,8 +69,7 @@ function SignIn() {
           Sign In
         </Button>
       </Form>
-      <GoogleLogin>
-      </GoogleLogin>
+      {/* <GoogleLogin></GoogleLogin> */}
       <Row className='py-3'>
         <Col>
           New Customer? <Link to={"/signup"}>Register</Link>
