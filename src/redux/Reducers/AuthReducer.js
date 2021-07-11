@@ -1,4 +1,4 @@
-import { USER_REGISTER, SIGNIN, GET_USER_DETAILS } from '../ActionType'
+import { USER_REGISTER, SIGNIN, GET_USER_DETAILS, LOGOUT } from '../ActionType'
 const initialState = {
     isSignup: false,
     isSignIn: false,
@@ -23,6 +23,14 @@ export const AuthReducer = (state = initialState, action) => {
                 ...state,
                 isSignIn: true,
                 userDetails: action.payload
+            }
+        case LOGOUT:
+            localStorage.removeItem('user')
+            localStorage.removeItem('token')
+            return {
+                ...state,
+                isSignIn: false,
+                userDetails: null
             }
         default:
             return state;

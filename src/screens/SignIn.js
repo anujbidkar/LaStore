@@ -16,7 +16,6 @@ function SignIn() {
   const [state, setState] = useState({
     email: "",
     password: "",
-    confirmPassword: "",
   });
   useEffect(() => {
     console.log("hello world");
@@ -47,9 +46,8 @@ function SignIn() {
             type='email'
             placeholder='Enter email'
             name='email'
-            handleChange={handleChange}
-            //   value={state.email}
-            //   onChange={(e) => setEmail(e.target.value)}
+            onChange={handleChange}
+            value={state.email}
           ></Form.Control>
         </Form.Group>
 
@@ -57,8 +55,10 @@ function SignIn() {
           <Form.Label>Password</Form.Label>
           <Form.Control
             type='password'
+            name='password'
             placeholder='Enter password'
-            handleChange={handleChange}
+            value={state.password}
+            onChange={handleChange}
           ></Form.Control>
         </Form.Group>
 
