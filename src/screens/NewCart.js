@@ -97,6 +97,7 @@ const NewCart = () => {
                         <td>$ {item.price}</td>
                         <td>
                           <Button
+                            disabled={item.quantity <= 1}
                             type='button'
                             variant='light'
                             className='btn-sm mr-1'
@@ -123,7 +124,7 @@ const NewCart = () => {
                           <Button
                             type='button'
                             variant='light'
-                            // onClick={() => removeFromCartHandler(item.product)}
+                          // onClick={() => removeFromCartHandler(item.product)}
                           >
                             <i className='fas fa-trash'></i>
                           </Button>
