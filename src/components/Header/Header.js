@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { LinkContainer } from "react-router-bootstrap";
 import {
   Navbar,
@@ -11,21 +11,32 @@ import {
 } from "react-bootstrap";
 import { Redirect } from "react-router";
 
-import { Route } from "react-router-dom";
-import SearchBox from "../SearchBox/SearchBox";
+import { Route, useHistory } from "react-router-dom";
+import SearchBar from "../SearchBox/SearchBar";
 
 import { useSelector, useDispatch } from "react-redux";
 const Header = (props) => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const { cartItemsList } = useSelector((state) => state.CartReducer);
   const { userDetails } = useSelector((state) => state.AuthReducer);
+  const { productList } = useSelector((state) => state.ProductReducer);
+  console.log("productData", productList);
+  // setmyProductData(productList);
 
+  const [myProductData, setmyProductData] = useState([]);
+  // useEffect(() => {
+  //   console.log("myDaat", productList);
+  //   setmyProductData(productList);
+  // }, []);
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
-    this.props.history.push("/");
+
+    history.push("/");
 
     // return <Redirect to='/' />;
   };
+
   return (
     <header>
       <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
@@ -36,7 +47,16 @@ const Header = (props) => {
 
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
-            <Route render={({ history }) => <SearchBox history={history} />} />
+            <Route
+              render={({ history }) =>
+                myProductData ? (
+                  <SearchBar
+                    data={productList}
+                    placeholder='Search Products...'
+                  />
+                ) : null
+              }
+            />
             <Nav className='ml-auto'>
               <LinkContainer to='/'>
                 <Nav.Link>
