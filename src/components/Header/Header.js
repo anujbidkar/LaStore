@@ -22,19 +22,13 @@ const Header = (props) => {
   const { userDetails } = useSelector((state) => state.AuthReducer);
   const { productList } = useSelector((state) => state.ProductReducer);
   console.log("productData", productList);
-  // setmyProductData(productList);
 
   const [myProductData, setmyProductData] = useState([]);
-  // useEffect(() => {
-  //   console.log("myDaat", productList);
-  //   setmyProductData(productList);
-  // }, []);
+
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
 
     history.push("/");
-
-    // return <Redirect to='/' />;
   };
 
   return (

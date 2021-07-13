@@ -128,9 +128,9 @@ const CheckoutForm = (props) => {
           <Form.Control
             type='text'
             required
-            name='address_2'
+            name='address'
             placeholder={"Detail Address"}
-            value={shippingForm.address_2}
+            value={shippingForm.address}
             onChange={handleChange}
           ></Form.Control>
         </Form.Group>
