@@ -13,7 +13,7 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import Rating from "../components/Rating/Rating";
 import TrendingProducts from "../components/TrendingProducts/TrendingProducts.js";
-import { getProductDetailsById } from "../redux/Actions/ProductAction";
+import { getProductDetailsById, addRatingForProduct } from "../redux/Actions/ProductAction";
 import { addItemInCart, getCartItems } from "../redux/Actions/CartAction";
 
 const ProductDetailScreen = () => {
@@ -41,8 +41,13 @@ const ProductDetailScreen = () => {
     dispatch(addItemInCart(item, qty));
   };
 
+  const handleSubmitRating = () => {
+    addRatingForProduct({})
+  }
+
   return (
     <Container>
+      {/* <span class="spinner-border spinner-border-sm ml-1"></span> */}
       {productDetails && (
         <>
           <Link className='btn btn-light my-3' to='/'>
@@ -139,7 +144,7 @@ const ProductDetailScreen = () => {
                   <ListGroup.Item>
                     <h2>Write a Customer Review</h2>
 
-                    <Form>
+                    <Form onSubmit={handleSubmitRating}>
                       <Form.Group controlId='rating'>
                         <Form.Label>Rating</Form.Label>
                         <Form.Control

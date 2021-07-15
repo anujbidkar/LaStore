@@ -4,6 +4,7 @@ import {
   SIGNIN,
   ERROR_MESSAGE,
   GET_USER_DETAILS,
+  NEWS_LETTER_SUBSCRIBE
 } from "../ActionType";
 import { toast } from "../../components/Toast/Toast";
 import { url } from "../../config";
@@ -53,3 +54,18 @@ export const isUserLoggedIn = () => async (dispatch) => {
     });
   }
 };
+
+export const newsLetterSubscribe = (email) => async (dispatch) => {
+  try {
+    const res = await axios({
+      method: "POST",
+      url: `${url}/api/users/newslettersubscription`,
+      data: { email }
+    });
+    toast.success(res.data.message);
+    dispatch({ type: NEWS_LETTER_SUBSCRIBE, payload: true });
+    return res;
+  } catch (error) {
+    toast.error(error.response.data.message);
+  }
+}

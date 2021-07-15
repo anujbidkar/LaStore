@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { PRODUCT_DETAIL, GET_PRODUCT_LIST, SEARCH_PRODUCT } from '../ActionType'
+import { PRODUCT_DETAIL, GET_PRODUCT_LIST, SEARCH_PRODUCT, ADD_PRODUCT_RATING } from '../ActionType'
 import { url } from '../../config'
 
 
@@ -41,6 +41,25 @@ export const serachProduct = (name) => async (dispatch) => {
         })
         dispatch({
             type: SEARCH_PRODUCT,
+            payload: res.data.data
+        })
+    }
+    catch (error) {
+        console.log(`errr`, error)
+    }
+}
+
+
+
+export const addRatingForProduct = (data) => async (dispatch) => {
+    try {
+        const res = await axios({
+            method: 'POST',
+            url: `${url}/api/products/rating`,
+            data
+        })
+        dispatch({
+            type: ADD_PRODUCT_RATING,
             payload: res.data.data
         })
     }

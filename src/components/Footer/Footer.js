@@ -1,7 +1,18 @@
-import React from "react";
+import { useState } from "react";
+import { useDispatch } from 'react-redux'
 import { Container, Button, Row, Col } from "react-bootstrap";
+import { newsLetterSubscribe } from '../../redux/Actions/AuthAction'
 
 const Footer = () => {
+  const [email, setEmail] = useState('')
+  const dispatch = useDispatch()
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    dispatch(newsLetterSubscribe(email))
+    setEmail('')
+  }
+
   return (
     <footer>
       <Container>
@@ -21,8 +32,10 @@ const Footer = () => {
             <input
               className='p-1  subsribeFooter'
               placeholder='Enter Your Email Id '
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
             />
-            <Button type='submit' variant='primary' className='m-1 h-1'>
+            <Button onClick={handleSubmit} type='submit' variant='primary' className='m-1 h-1'>
               Subsribe
             </Button>
           </Col>
