@@ -4,6 +4,7 @@ import Slider from "../carousel/Slider.js";
 // import Footer from "../Footer/Footer.js";
 
 describe("Carousel Hover Test", () => {
+
   test("check Hover", () => {
     render(<Slider />);
     const sliderDiv = screen.getByTestId("slider-container");
@@ -12,10 +13,14 @@ describe("Carousel Hover Test", () => {
     const checkButton = screen.getByTestId("MyArrows");
     expect(checkButton).toBeInTheDocument();
   });
+
+  
   test("check Un Hover", () => {
     render(<Slider />);
 
     const checkButton = screen.queryByTestId("MyArrows");
     expect(checkButton).toBeNull();
   });
+
+
 });

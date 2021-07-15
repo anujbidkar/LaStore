@@ -24,6 +24,7 @@ function Slider(props) {
 
   return (
     <div
+  
       data-testid={"slider-container"}
       className='slider-container'
       onMouseEnter={showMyArrow}
