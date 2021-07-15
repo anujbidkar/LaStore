@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
   Row,
@@ -15,8 +15,11 @@ import Rating from "../components/Rating/Rating";
 import TrendingProducts from "../components/TrendingProducts/TrendingProducts.js";
 import { getProductDetailsById } from "../redux/Actions/ProductAction";
 import { addItemInCart, getCartItems } from "../redux/Actions/CartAction";
+import Loader from "../components/Loader/Loader";
 
 const ProductDetailScreen = () => {
+  const myRef = useRef(null)
+
   const dispatch = useDispatch();
   const [qty, setQty] = useState(1);
   const [rating, setRating] = useState(0);
@@ -26,26 +29,35 @@ const ProductDetailScreen = () => {
   const { cartItemsList, total } = useSelector((state) => state.CartReducer);
 
   useEffect(() => {
-    fetchProductDetails();
-  }, []);
+    executeScroll();    
 
+    fetchProductDetails();
+  }, [id]);
+
+  const executeScroll = () => myRef.current.scrollIntoView()  
+
+  
   useEffect(() => {
+
+    executeScroll();    
     getCartItems();
   }, [cartItemsList]);
 
   const fetchProductDetails = () => {
+
     dispatch(getProductDetailsById(id));
   };
 
   const handleAddItemToCart = (item) => {
+
     dispatch(addItemInCart(item, qty));
   };
 
   return (
-    <Container>
-      {productDetails && (
+    <Container ref={myRef}>
+      {productDetails ? (
         <>
-          <Link className='btn btn-light my-3' to='/'>
+          <Link  className='btn btn-light my-3' id="Goback" to='/'>
             Go Back
           </Link>
 
@@ -181,6 +193,8 @@ const ProductDetailScreen = () => {
             </Row>
           </>
         </>
+      ):(
+        <Loader />
       )}
     </Container>
   );

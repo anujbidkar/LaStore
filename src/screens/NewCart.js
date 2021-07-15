@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -22,6 +22,8 @@ import {
 import "./cart.css";
 import CartTotal from "../components/CartTotal/CartTotal";
 const NewCart = () => {
+
+  const [subTotal, setSubTotal] = useState(0);
   //   const productId = match.params.id;
 
   //   const qty = location.search ? Number(location.search.split("=")[1]) : 1;
@@ -36,6 +38,8 @@ const NewCart = () => {
 
   useEffect(() => {
     fetchCartItems();
+
+    
   }, [cartItemsList.length]);
 
   const fetchCartItems = () => {
@@ -141,7 +145,7 @@ const NewCart = () => {
             <ListGroup variant='flush'>
               <ListGroup.Item>
                 <h3>
-                  Subtotal (
+                  Subtotal {subTotal} (
                   {cartItemsList.reduce((acc, item) => acc + item.quantity, 0)})
                   items
                 </h3>
@@ -151,9 +155,13 @@ const NewCart = () => {
                   .toFixed(2)}
               </ListGroup.Item>
               <ListGroup.Item>
-                <Link to='/checkout' className='btn btn-primary btn-block'>
-                  Proceed To Checkout
-                </Link>
+              {cartItemsList.reduce((acc, item) => acc + item.quantity, 0) > 0 ? ( <Link to='/checkout' className='btn btn-primary btn-block'>
+                   Proceed To Checkout
+                 </Link>) : null }
+              
+                  
+              
+               
               </ListGroup.Item>
             </ListGroup>
           </Card>

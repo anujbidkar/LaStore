@@ -51,7 +51,7 @@ function SearchBar({ placeholder, data }) {
         <div className='dataResult'>
           {filteredData.slice(0, 15).map((value, key) => {
             return (
-              <Link className='' to={`/productDetail/${value._id}`}>
+              <Link className='' onClick={clearInput} to={`/productDetail/${value._id}`} onBlur={clearInput}>
                 <div className='dataItem listDiv'>
                   <img className='imgThumbnail' src={value.image} />
 

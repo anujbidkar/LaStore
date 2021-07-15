@@ -1,70 +1,121 @@
-# Getting Started with Create React App
+The LAStore - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+## Project URL
 
-In the project directory, you can run:
+Frontend: https://lastore.netlify.app
 
-### `npm start`
+Backend: https://github.com/internwt/lastore-api
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Description
 
-### `npm test`
+LAStore is an ecommerce platform where user can purchase products.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## About Project
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+"LA Stores" is an e-commerce website focused on clothing products that can customize every detail of your product. It is a platform that connects sellers with buyers. We provide customers with a more rewarding shopping experience by not only allowing them to search for and compare different offerings.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[Click To View PRD Document and UI Wireframe's.](https://drive.google.com/drive/folders/1Bz54TS6NdIFKMAuCROgmjfPwkJeVYWRw?usp=sharing)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Requirements
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+For development, you will only need React.js and a node global package, Yarn, installed in your environement.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Node.js and React.js
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- #### Node installation on Windows
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  Just go on [official Node.js website](https://nodejs.org/) and download the installer.
+  Also, be sure to have `git` available in your PATH, `npm` might need it (You can find git [here](https://git-scm.com/)).
 
-## Learn More
+- #### Node installation on Ubuntu
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  You can install nodejs and npm easily with apt install, just run the following commands.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+      $ sudo apt install nodejs
+      $ sudo apt install npm
 
-### Code Splitting
+- #### Other Operating Systems
+  You can find more information about the installation on the [official Node.js website](https://nodejs.org/) and the [official NPM website](https://npmjs.org/).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+If the installation was successful, you should be able to run the following command.
 
-### Analyzing the Bundle Size
+    $ node --version
+    v12.18.3
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    $ npm --version
 
-### Making a Progressive Web App
+6.14.6
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+If you need to update `npm`, you can make it using `npm`! Cool right? After running the following command, just open again the command line and be happy.
 
-### Advanced Configuration
+    $ npm install npm -g
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+###
 
-### Deployment
+### Yarn installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+After installing node, this project will need yarn too, so just run the following command.
 
-### `npm run build` fails to minify
+      $ npm install -g yarn
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## Install
+
+    $ git clone https://github.com/anujbidkar/LaStore.git
+    $ cd LaStore
+    $ npm install
+
+---
+
+## Running the project
+
+    $ npm run start
+
+---
+
+## Testing
+
+    $ npm test
+
+---
+
+# Production Build
+
+    $ npm run build
+
+---
+
+# Stack
+
+### Front-End:
+
+1. React: A JavaScript library that is used for building user interfaces.
+
+2. React-Router: This is used to handle the client-side routing in the app.
+
+3. Redux: It is used for managing state of the React app.
+
+4. Redux-Thunk: It is used to handle asynchronous actions in Redux.
+
+### Testing:
+
+1.  Jest : It is a testing framework that comes preloaded with tools like task runner, assertion library, to execute different unit test cases.
+
+---
+
+## Tickets Management.
+
+Wr Are Using Trello To Manage Our Tickets & Track Task Releted To Ou Project.
+
+[Click To View Trello Board.](https://trello.com/invite/b/SRXWGzji/cad199d2b3a7f449433837bbb8e5dcc2/lastore)
+
+---
