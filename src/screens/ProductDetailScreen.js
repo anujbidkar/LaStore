@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
   Row,
@@ -13,15 +13,20 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import Rating from "../components/Rating/Rating";
 import TrendingProducts from "../components/TrendingProducts/TrendingProducts.js";
-import { getProductDetailsById, addRatingForProduct } from "../redux/Actions/ProductAction";
+import {
+  getProductDetailsById,
+  addRatingForProduct,
+} from "../redux/Actions/ProductAction";
 import { addItemInCart, getCartItems } from "../redux/Actions/CartAction";
 import Loader from "../components/Loader/Loader";
 
 const ProductDetailScreen = () => {
-  const myRef = useRef(null)
+  const myRef = useRef(null);
 
   const dispatch = useDispatch();
   const [qty, setQty] = useState(1);
+  const [size, setSize] = useState("L");
+  const [color, setColor] = useState("Red");
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
   const { id } = useParams();
@@ -29,39 +34,35 @@ const ProductDetailScreen = () => {
   const { cartItemsList, total } = useSelector((state) => state.CartReducer);
 
   useEffect(() => {
-    executeScroll();    
+    executeScroll();
 
     fetchProductDetails();
   }, [id]);
 
-  const executeScroll = () => myRef.current.scrollIntoView()  
+  const executeScroll = () => myRef.current.scrollIntoView();
 
-  
   useEffect(() => {
-
-    executeScroll();    
+    executeScroll();
     getCartItems();
   }, [cartItemsList]);
 
   const fetchProductDetails = () => {
-
     dispatch(getProductDetailsById(id));
   };
 
   const handleAddItemToCart = (item) => {
-
     dispatch(addItemInCart(item, qty));
   };
 
   const handleSubmitRating = () => {
-    addRatingForProduct({})
-  }
+    addRatingForProduct({});
+  };
 
   return (
     <Container ref={myRef}>
       {productDetails ? (
         <>
-          <Link  className='btn btn-light my-3' id="Goback" to='/'>
+          <Link className='btn btn-light my-3' id='Goback' to='/'>
             Go Back
           </Link>
 
@@ -98,7 +99,7 @@ const ProductDetailScreen = () => {
                       <Row>
                         <Col>Price:</Col>
                         <Col>
-                          <strong>$ 400</strong>
+                          <strong>$ {productDetails.price}</strong>
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -122,6 +123,40 @@ const ProductDetailScreen = () => {
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
+                          </Form.Control>
+                        </Col>
+                      </Row>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Row>
+                        <Col>Select Size</Col>
+                        <Col>
+                          <Form.Control
+                            as='select'
+                            value={size}
+                            onChange={(e) => setSize(e.target.value)}
+                          >
+                            <option>M</option>
+                            <option>L</option>
+                            <option>XL</option>
+                            <option>XXL</option>
+                          </Form.Control>
+                        </Col>
+                      </Row>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Row>
+                        <Col>Select Color</Col>
+                        <Col>
+                          <Form.Control
+                            as='select'
+                            value={color}
+                            onChange={(e) => setColor(e.target.value)}
+                          >
+                            <option>Red</option>
+                            <option>Blue</option>
+                            <option>Black</option>
+                            <option>White</option>
                           </Form.Control>
                         </Col>
                       </Row>
@@ -197,7 +232,7 @@ const ProductDetailScreen = () => {
             </Row>
           </>
         </>
-      ):(
+      ) : (
         <Loader />
       )}
     </Container>

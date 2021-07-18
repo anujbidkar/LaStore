@@ -25,7 +25,7 @@ import StaticPages from './components/StaticPages/StaticPages'
 
 const Pages = [
   {
-    name: "ProductDetailScreen",
+    name: "ProductDetailSscreen",
     path: `/productDetail/:id`,
     view: ProductDetailScreen,
   },

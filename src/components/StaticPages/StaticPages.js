@@ -1,28 +1,27 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
-import { getPageBySlug } from '../../redux/Actions/PageAction'
-
+import { getPageBySlug } from "../../redux/Actions/PageAction";
 
 const Pages = () => {
-  const { slug_id } = useParams()
-  const dispatch = useDispatch()
-  const { pageDetails } = useSelector((state) => state.PageReducer)
+  const { slug_id } = useParams();
+  const dispatch = useDispatch();
+  const { pageDetails } = useSelector((state) => state.PageReducer);
 
   useEffect(() => {
-    fetchPageContent()
-  }, [slug_id])
+    fetchPageContent();
+  }, [slug_id]);
 
   const fetchPageContent = () => {
-    dispatch(getPageBySlug(slug_id))
-  }
+    dispatch(getPageBySlug(slug_id));
+  };
 
   return (
     <div>
-      <main className="mainContainer">
-        <section className="home-product-section pb-5 mt-4">
-          <div className="container">
-            <div className="container-fluid row">
+      <main className='mainContainer'>
+        <section className='home-product-section pb-5 mt-4'>
+          <div className='container'>
+            <div className='container-fluid row'>
               <div>
                 <div
                   dangerouslySetInnerHTML={{
@@ -37,10 +36,8 @@ const Pages = () => {
         </section>
       </main>
     </div>
-
-  )
-
-}
+  );
+};
 // class Pages extends Component {
 //   constructor(props) {
 //     super(props);
@@ -100,7 +97,5 @@ const Pages = () => {
 //   }
 // }
 
-
-
 // export default connect(null, mapDispatchToProps)(About_Us);
-export default Pages
+export default Pages;

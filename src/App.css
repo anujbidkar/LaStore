@@ -5,3 +5,8 @@
   overflow: auto;
   padding-bottom: 150px; /* this needs to be bigger than footer height*/
 }
+
+.circle:before {
+  content: " \25CF";
+  font-size: 200px;
+}
