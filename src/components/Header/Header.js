@@ -78,7 +78,7 @@ const Header = (props) => {
                 </NavDropdown>
               ) : (
                 <LinkContainer to='/signin'>
-                  <Nav.Link>sigin</Nav.Link>
+                  <Nav.Link>signin</Nav.Link>
                 </LinkContainer>
               )}
             </Nav>

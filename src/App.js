@@ -21,6 +21,7 @@ import OrderConfirmation from './screens/OrderConfirmation/OrderConfirmation';
 import My404Component from './components/My404Component/My404Component'
 import OrderList from './screens/OrderList'
 import OrderCancel from './components/OrderCancel/OrderCancelPage'
+import StaticPages from './components/StaticPages/StaticPages'
 
 const Pages = [
   {
@@ -48,6 +49,11 @@ const Pages = [
     path: `/signin`,
     view: SignIn,
   },
+  {
+    page: 'StaticPages',
+    path: '/page/:slug_id',
+    view: StaticPages
+  }
 ];
 
 function App() {
