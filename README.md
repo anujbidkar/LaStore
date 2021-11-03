@@ -1,6 +1,12 @@
-The LAStore - Frontend
+# LA Store Frontend
 
----
+<!-- ![Author](https://img.shields.io/badge/Author-N7ALPHA-red?style=for-the-badge&logo=appveyor)
+![GitHub repo size](https://img.shields.io/badge/REPO%20SIZE-16.2MB-orange?style=for-the-badge&logo=appveyor)
+![Contributors](https://img.shields.io/badge/Contributors-3-orange?style=for-the-badge&logo=appveyor)
+![Forks](https://img.shields.io/badge/FORKS-0-orange?style=for-the-badge&logo=appveyor)
+![Stargazers](https://img.shields.io/badge/STARS-0-orange?style=for-the-badge&logo=appveyor)
+![Issues](https://img.shields.io/badge/ISSUES-0%20OPEN-orange?style=for-the-badge&logo=appveyor)
+![Coverage](https://img.shields.io/badge/COVERAGE-28%25-orange?style=for-the-badge&logo=appveyor) -->
 
 ## Project URL
 
@@ -8,25 +14,37 @@ Frontend: https://lastore.netlify.app
 
 Backend: https://github.com/internwt/lastore-api
 
----
+## Table of contents
 
-## Description
+- [Introduction](#intro)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Features](#features)
+- [Project Status](#project-status)
+- [Sources](#sources)
+- [Screenshots](#screenshots)
+- [Contributors](#contributors)
 
-LAStore is an ecommerce platform where user can purchase products.
-
----
-
-## About Project
+## Introduction
 
 "LA Stores" is an e-commerce website focused on clothing products that can customize every detail of your product. It is a platform that connects sellers with buyers. We provide customers with a more rewarding shopping experience by not only allowing them to search for and compare different offerings.
 
-[Click To View PRD Document and UI Wireframe's.](https://drive.google.com/drive/folders/1Bz54TS6NdIFKMAuCROgmjfPwkJeVYWRw?usp=sharing)
+Frontend are hosted on Netlify.
+Backend are hosted on Heroku.
 
----
+-Live demo [_here_](https://lastore.netlify.app).
 
-## Requirements
+## Technologies
 
-For development, you will only need React.js and a node global package, Yarn, installed in your environement.
+1. React: A JavaScript library that is used for building user interfaces.
+
+2. React-Router: This is used to handle the client-side routing in the app.
+
+3. Redux: It is used for managing state of the React app.
+
+4. Redux-Thunk: It is used to handle asynchronous actions in Redux.
+
+## Setup
 
 ### Node.js and React.js
 
@@ -92,30 +110,32 @@ After installing node, this project will need yarn too, so just run the followin
 
     $ npm run build
 
----
+## Features
 
-# Stack
+- UI is complelety build on react and functional component.
+- Easy to navigate through the page(SPA)
+- Unit test coverage(React Testing Library)
+- Authentication
+- Responsive(Mobile, Desktop)
 
-### Front-End:
+## Project Status
 
-1. React: A JavaScript library that is used for building user interfaces.
+- In Progress
 
-2. React-Router: This is used to handle the client-side routing in the app.
+## Sources
 
-3. Redux: It is used for managing state of the React app.
+TBD
 
-4. Redux-Thunk: It is used to handle asynchronous actions in Redux.
+## Screenshots
 
-### Testing:
+![Example screenshot](./src/assets/Screenshot.png)
 
-1.  Jest : It is a testing framework that comes preloaded with tools like task runner, assertion library, to execute different unit test cases.
+## Contributors ✨
 
----
-
-## Tickets Management.
-
-Wr Are Using Trello To Manage Our Tickets & Track Task Releted To Ou Project.
-
-[Click To View Trello Board.](https://trello.com/invite/b/SRXWGzji/cad199d2b3a7f449433837bbb8e5dcc2/lastore)
-
----
+<table>
+  <tr>
+    <td align="center"><a href="https://www.linkedin.com/in/anujbidkar/" target="_blank"><img src="" width="100px;" alt=""/><br /><sub><b>Anuj Bidkar</b></sub></a><br /><a href="" title="Code">💻</a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/loveneet-singh-a9a570160/" target="_blank"><img src="" width="100px;" alt=""/><br /><sub><b>Loveneet Singh</b></sub></a><br /><a href="" title="Code">💻</a></td>
+    
+  </tr>
+</table>
