@@ -8,6 +8,7 @@ describe("Footer Component", () => {
     const linkElement = screen.getByText("LA Store", { exact: false });
     expect(linkElement).toBeInTheDocument();
   });
+
   test("check footer subscribe now text", () => {
     render(<Footer />);
     const linkElement = screen.getByText(

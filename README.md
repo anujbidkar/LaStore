@@ -1,70 +1,141 @@
-# Getting Started with Create React App
+# LA Store Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- ![Author](https://img.shields.io/badge/Author-N7ALPHA-red?style=for-the-badge&logo=appveyor)
+![GitHub repo size](https://img.shields.io/badge/REPO%20SIZE-16.2MB-orange?style=for-the-badge&logo=appveyor)
+![Contributors](https://img.shields.io/badge/Contributors-3-orange?style=for-the-badge&logo=appveyor)
+![Forks](https://img.shields.io/badge/FORKS-0-orange?style=for-the-badge&logo=appveyor)
+![Stargazers](https://img.shields.io/badge/STARS-0-orange?style=for-the-badge&logo=appveyor)
+![Issues](https://img.shields.io/badge/ISSUES-0%20OPEN-orange?style=for-the-badge&logo=appveyor)
+![Coverage](https://img.shields.io/badge/COVERAGE-28%25-orange?style=for-the-badge&logo=appveyor) -->
 
-## Available Scripts
+## Project URL
 
-In the project directory, you can run:
+Frontend: https://lastore.netlify.app
 
-### `npm start`
+Backend: https://github.com/internwt/lastore-api
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Table of contents
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [Introduction](#intro)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Features](#features)
+- [Project Status](#project-status)
+- [Sources](#sources)
+- [Screenshots](#screenshots)
+- [Contributors](#contributors)
 
-### `npm test`
+## Introduction
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+"LA Stores" is an e-commerce website focused on clothing products that can customize every detail of your product. It is a platform that connects sellers with buyers. We provide customers with a more rewarding shopping experience by not only allowing them to search for and compare different offerings.
 
-### `npm run build`
+Frontend are hosted on Netlify.
+Backend are hosted on Heroku.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-Live demo [_here_](https://lastore.netlify.app).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technologies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. React: A JavaScript library that is used for building user interfaces.
 
-### `npm run eject`
+2. React-Router: This is used to handle the client-side routing in the app.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+3. Redux: It is used for managing state of the React app.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Redux-Thunk: It is used to handle asynchronous actions in Redux.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Setup
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Node.js and React.js
 
-## Learn More
+- #### Node installation on Windows
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  Just go on [official Node.js website](https://nodejs.org/) and download the installer.
+  Also, be sure to have `git` available in your PATH, `npm` might need it (You can find git [here](https://git-scm.com/)).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- #### Node installation on Ubuntu
 
-### Code Splitting
+  You can install nodejs and npm easily with apt install, just run the following commands.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+      $ sudo apt install nodejs
+      $ sudo apt install npm
 
-### Analyzing the Bundle Size
+- #### Other Operating Systems
+  You can find more information about the installation on the [official Node.js website](https://nodejs.org/) and the [official NPM website](https://npmjs.org/).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+If the installation was successful, you should be able to run the following command.
 
-### Making a Progressive Web App
+    $ node --version
+    v12.18.3
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    $ npm --version
 
-### Advanced Configuration
+6.14.6
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+If you need to update `npm`, you can make it using `npm`! Cool right? After running the following command, just open again the command line and be happy.
 
-### Deployment
+    $ npm install npm -g
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+###
 
-### `npm run build` fails to minify
+### Yarn installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+After installing node, this project will need yarn too, so just run the following command.
+
+      $ npm install -g yarn
+
+---
+
+## Install
+
+    $ git clone https://github.com/anujbidkar/LaStore.git
+    $ cd LaStore
+    $ npm install
+
+---
+
+## Running the project
+
+    $ npm run start
+
+---
+
+## Testing
+
+    $ npm test
+
+---
+
+# Production Build
+
+    $ npm run build
+
+## Features
+
+- UI is complelety build on react and functional component.
+- Easy to navigate through the page(SPA)
+- Unit test coverage(React Testing Library)
+- Authentication
+- Responsive(Mobile, Desktop)
+
+## Project Status
+
+- In Progress
+
+## Sources
+
+TBD
+
+## Screenshots
+
+![Example screenshot](./src/assets/Screenshot.png)
+
+## Contributors ✨
+
+<table>
+  <tr>
+    <td align="center"><a href="https://www.linkedin.com/in/anujbidkar/" target="_blank"><img src="" width="100px;" alt=""/><br /><sub><b>Anuj Bidkar</b></sub></a><br /><a href="" title="Code">💻</a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/loveneet-singh-a9a570160/" target="_blank"><img src="" width="100px;" alt=""/><br /><sub><b>Loveneet Singh</b></sub></a><br /><a href="" title="Code">💻</a></td>
+    
+  </tr>
+</table>

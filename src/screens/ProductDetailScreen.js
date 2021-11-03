@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
   Row,
@@ -10,43 +10,59 @@ import {
   Form,
   Container,
 } from "react-bootstrap";
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from "react-redux";
 import Rating from "../components/Rating/Rating";
 import TrendingProducts from "../components/TrendingProducts/TrendingProducts.js";
-import { getProductDetailsById } from '../redux/Actions/ProudctAction'
-import { addItemInCart, getCartItems } from '../redux/Actions/CartAction'
+import {
+  getProductDetailsById,
+  addRatingForProduct,
+} from "../redux/Actions/ProductAction";
+import { addItemInCart, getCartItems } from "../redux/Actions/CartAction";
+import Loader from "../components/Loader/Loader";
 
 const ProductDetailScreen = () => {
-  const dispatch = useDispatch()
+  const myRef = useRef(null);
+
+  const dispatch = useDispatch();
   const [qty, setQty] = useState(1);
+  const [size, setSize] = useState("L");
+  const [color, setColor] = useState("Red");
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
-  const { id } = useParams()
-  const { productDetails } = useSelector(state => state.ProductReducer)
-  const { cartItemsList, total } = useSelector(state => state.CartReducer)
+  const { id } = useParams();
+  const { productDetails } = useSelector((state) => state.ProductReducer);
+  const { cartItemsList, total } = useSelector((state) => state.CartReducer);
 
   useEffect(() => {
-    fetchProductDetails()
-  }, []);
+    executeScroll();
+
+    fetchProductDetails();
+  }, [id]);
+
+  const executeScroll = () => myRef.current.scrollIntoView();
 
   useEffect(() => {
-    getCartItems()
-  }, [cartItemsList])
+    executeScroll();
+    getCartItems();
+  }, [cartItemsList]);
 
   const fetchProductDetails = () => {
-    dispatch(getProductDetailsById(id))
-  }
+    dispatch(getProductDetailsById(id));
+  };
 
   const handleAddItemToCart = (item) => {
-    dispatch(addItemInCart(item, qty))
-  }
+    dispatch(addItemInCart(item, qty));
+  };
 
+  const handleSubmitRating = () => {
+    addRatingForProduct({});
+  };
 
   return (
-    <>
-      {productDetails &&
+    <Container ref={myRef}>
+      {productDetails ? (
         <>
-          <Link className='btn btn-light my-3' to='/'>
+          <Link className='btn btn-light my-3' id='Goback' to='/'>
             Go Back
           </Link>
 
@@ -65,9 +81,14 @@ const ProductDetailScreen = () => {
                     <h3>{productDetails.name}</h3>
                   </ListGroup.Item>
                   <ListGroup.Item>
-                    <Rating value={productDetails.rating} text={productDetails.rating} />
+                    <Rating
+                      value={productDetails.rating}
+                      text={productDetails.rating}
+                    />
                   </ListGroup.Item>
-                  <ListGroup.Item>Price: ${productDetails.price}</ListGroup.Item>
+                  <ListGroup.Item>
+                    Price: ${productDetails.price}
+                  </ListGroup.Item>
                   <ListGroup.Item>{productDetails.description}</ListGroup.Item>
                 </ListGroup>
               </Col>
@@ -78,7 +99,7 @@ const ProductDetailScreen = () => {
                       <Row>
                         <Col>Price:</Col>
                         <Col>
-                          <strong>$ 400</strong>
+                          <strong>$ {productDetails.price}</strong>
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -106,9 +127,47 @@ const ProductDetailScreen = () => {
                         </Col>
                       </Row>
                     </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Row>
+                        <Col>Select Size</Col>
+                        <Col>
+                          <Form.Control
+                            as='select'
+                            value={size}
+                            onChange={(e) => setSize(e.target.value)}
+                          >
+                            <option>M</option>
+                            <option>L</option>
+                            <option>XL</option>
+                            <option>XXL</option>
+                          </Form.Control>
+                        </Col>
+                      </Row>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Row>
+                        <Col>Select Color</Col>
+                        <Col>
+                          <Form.Control
+                            as='select'
+                            value={color}
+                            onChange={(e) => setColor(e.target.value)}
+                          >
+                            <option>Red</option>
+                            <option>Blue</option>
+                            <option>Black</option>
+                            <option>White</option>
+                          </Form.Control>
+                        </Col>
+                      </Row>
+                    </ListGroup.Item>
 
                     <ListGroup.Item>
-                      <Button className='btn-block' type='button' onClick={() => handleAddItemToCart(productDetails)}>
+                      <Button
+                        className='btn-block'
+                        type='button'
+                        onClick={() => handleAddItemToCart(productDetails)}
+                      >
                         Add To Cart
                       </Button>
                     </ListGroup.Item>
@@ -131,7 +190,7 @@ const ProductDetailScreen = () => {
                   <ListGroup.Item>
                     <h2>Write a Customer Review</h2>
 
-                    <Form>
+                    <Form onSubmit={handleSubmitRating}>
                       <Form.Group controlId='rating'>
                         <Form.Label>Rating</Form.Label>
                         <Form.Control
@@ -173,8 +232,10 @@ const ProductDetailScreen = () => {
             </Row>
           </>
         </>
-      }
-    </>
+      ) : (
+        <Loader />
+      )}
+    </Container>
   );
 };
 
