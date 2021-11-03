@@ -19,7 +19,7 @@ function SignIn() {
     password: "12345678",
   });
   useEffect(() => {
-    console.log("hello world");
+    // console.log("hello world");
   }, []);
 
   const handleChange = (e) => {
