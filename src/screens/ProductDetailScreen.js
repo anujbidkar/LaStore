@@ -58,14 +58,8 @@ const ProductDetailScreen = () => {
   }
 
   return (
-<<<<<<< HEAD
-    <Container>
-      {/* <span class="spinner-border spinner-border-sm ml-1"></span> */}
-      {productDetails && (
-=======
     <Container ref={myRef}>
       {productDetails ? (
->>>>>>> 673c90876d29ae79ab6f9470bf0f794a53bef823
         <>
           <Link  className='btn btn-light my-3' id="Goback" to='/'>
             Go Back

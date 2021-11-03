@@ -15,8 +15,8 @@ function SignIn() {
   const { isSignIn } = useSelector((state) => state.AuthReducer);
   const history = useHistory();
   const [state, setState] = useState({
-    email: "",
-    password: "",
+    email: "test2@gmail.com",
+    password: "12345678",
   });
   useEffect(() => {
     console.log("hello world");
