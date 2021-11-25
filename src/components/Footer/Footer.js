@@ -97,7 +97,7 @@ const Footer = () => {
                 variant='primary'
                 className='m-1 h-1'
               >
-                Subsribe
+                subscribe
               </Button>
             </Col>
             <Col sm={12} md={12} lg={12} xl={12} className='text-center py-3'>
